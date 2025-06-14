@@ -143,6 +143,7 @@ const skillIcons = {
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -166,6 +167,8 @@ function App() {
           <span className="text-2xl font-bold tracking-tight text-blue-700 dark:text-blue-400">
             Mradul Verma
           </span>
+
+          {/* Desktop Navigation */}
           <ul className="hidden md:flex gap-8 text-lg font-medium">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -178,6 +181,7 @@ function App() {
               </li>
             ))}
           </ul>
+
           <div className="flex items-center gap-2">
             <button
               aria-label={
@@ -192,8 +196,13 @@ function App() {
                 <MoonIcon className="w-6 h-6 text-blue-700" />
               )}
             </button>
-            <button className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <span className="sr-only">Open navigation</span>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Toggle menu"
+            >
               <svg
                 width="24"
                 height="24"
@@ -201,16 +210,48 @@ function App() {
                 stroke="currentColor"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
+                className={`transition-transform duration-300 ${
+                  isMenuOpen ? "rotate-90" : ""
+                }`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
         </nav>
+
+        {/* Mobile Navigation */}
+        <div
+          className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+            isMenuOpen ? "max-h-52 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <ul className="container mx-auto px-6 py-2 space-y-2">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block py-2 text-lg font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </header>
 
       {/* Hero / About Section */}
