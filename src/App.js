@@ -487,7 +487,7 @@ function App() {
               Microsoft Certified: Azure Fundamentals (AZ-900)
             </h3>
             <p className="text-gray-700 dark:text-gray-200 mb-1">
-              Microsoft | April 2025
+              Microsoft | june 2025
             </p>
             <p className="text-gray-600 dark:text-gray-400">
               Certified in foundational Azure cloud concepts including core
