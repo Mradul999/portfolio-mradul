@@ -521,7 +521,7 @@ function App() {
                 href="mailto:mradulverma89@gmail.com"
                 className="text-blue-600 dark:text-blue-300 hover:underline flex items-center gap-2 text-lg"
               >
-                <FaRegEnvelope /> mradulverma089@gmail.com
+                <FaRegEnvelope /> mradulverma89@gmail.com
               </a>
               <a
                 href="https://www.linkedin.com/in/mradulverma2/"
@@ -540,7 +540,7 @@ function App() {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/mradulverma999"
+                href="https://github.com/mradul999"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 dark:text-blue-300 hover:underline flex items-center gap-2 text-lg"
